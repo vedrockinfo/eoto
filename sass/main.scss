@@ -1,0 +1,919 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+// Variables
+$colorPrimary: #004500;
+$colorSecondary: #8cd26e;
+$colorBlack: #110B11;
+$colorWhite: #ffffff;
+$copyrightBG: #020202;
+$footerBG: #545775;
+$colorGrey: #f1f1f2;
+
+
+$transition: 0.4s ease;
+
+$boxShadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+// Responsive
+
+@mixin respond($breakpoint) {
+    @if $breakpoint ==maxWidth575 {
+        @media only screen and (max-width: 575px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==maxWidth768 {
+        @media only screen and (max-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==maxWidth992 {
+        @media only screen and (max-width: 992px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==maxWidth1200 {
+        @media only screen and (max-width: 1200px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==minmax992-12 {
+        @media only screen and (min-width: 992.1px) and (max-width:1200px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==minmax12-14 {
+        @media only screen and (min-width: 1200.1px) and (max-width:1400px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==minWidth1800 {
+        @media only screen and (min-width: 1800.1px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==minWidth1400 {
+        @media only screen and (min-width: 1400.1px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==minWidth1200 {
+        @media only screen and (min-width: 1200.1px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==minWidth992 {
+        @media only screen and (min-width: 992.1px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==minWidth768 {
+        @media only screen and (min-width: 768.1px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==minWidth575 {
+        @media only screen and (min-width: 575.1px) {
+            @content;
+        }
+    }
+}
+
+// Global CSS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-bottom: 0;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+
+    @include respond(minWidth575) {
+        max-width: 540px;
+    }
+
+    @include respond(minWidth768) {
+        max-width: 720px;
+    }
+
+    @include respond(minWidth992) {
+        max-width: 960px;
+    }
+
+    @include respond(minWidth1200) {
+        max-width: 1140px;
+    }
+
+    @include respond(maxWidth575) {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.mBottom {
+    margin-bottom: 7rem;
+
+    @include respond(maxWidth992) {
+        margin-bottom: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        margin-bottom: 3rem;
+    }
+}
+
+.mTop {
+    margin-top: 7rem;
+
+    @include respond(maxWidth992) {
+        margin-top: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        margin-top: 3rem;
+    }
+}
+
+.pBottom {
+    padding-bottom: 7rem;
+
+    @include respond(maxWidth992) {
+        padding-bottom: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        padding-bottom: 3rem;
+    }
+}
+
+.pTop {
+    padding-top: 7rem;
+
+    @include respond(maxWidth992) {
+        padding-top: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        padding-top: 3rem;
+    }
+}
+
+.spaceOne {
+    height: 4rem;
+
+    @include respond(maxWidth992) {
+        height: 3rem;
+    }
+
+    @include respond(maxWidth768) {
+        height: 2.5rem;
+    }
+}
+
+.spaceTwo {
+    height: 7rem;
+
+    @include respond(maxWidth992) {
+        height: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        height: 3rem;
+    }
+}
+
+.spaceThree {
+    height: 2.5rem;
+
+    @include respond(maxWidth992) {
+        height: 2rem;
+    }
+
+    @include respond(maxWidth768) {
+        height: 1.5rem;
+    }
+}
+
+.eotoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include respond(maxWidth992) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    &__Item {}
+}
+
+.global-btn-dark {
+    background: $colorPrimary;
+    color: $colorWhite;
+    border: 1px solid $colorPrimary;
+    border-radius: 3px;
+    transition: all 0.4s;
+    max-width: 20rem;
+    text-transform: uppercase;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    font-weight: 600;
+
+    @include respond(maxWidth992) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.d-inline-block {
+        max-width: none;
+        padding: 0 3rem;
+    }
+
+    &:hover {
+        background: transparent;
+        border: 1px solid $colorPrimary;
+        color: $colorPrimary;
+    }
+}
+
+.global-btn-light {
+    background: $colorWhite;
+    color: $colorPrimary;
+    border: 1px solid $colorWhite;
+    border-radius: 3px;
+    transition: all 0.4s;
+    max-width: 20rem;
+    text-transform: uppercase;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    font-weight: 600;
+    box-shadow: 3px 3px 0 #696969;
+
+    @include respond(maxWidth992) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.d-inline-block {
+        max-width: none;
+        padding: 0 3rem;
+    }
+
+    &:hover {
+        background: transparent;
+        border: 1px solid $colorWhite;
+        color: $colorWhite;
+        box-shadow: none;
+    }
+}
+
+.internalLink {
+    color: $colorPrimary;
+    font-weight: 700;
+    transition: $transition;
+
+    &:hover {
+        text-decoration: underline;
+        text-underline-position: below;
+    }
+}
+
+// Typography
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: $colorBlack;
+
+    @include respond (maxWidth992) {
+        font-size: 14px;
+    }
+}
+
+.headingPrimary {
+    line-height: 1.25em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 700;
+    color: $colorPrimary;
+
+    @include respond(maxWidth992) {
+        margin-bottom: 30px;
+        font-size: 36px;
+    }
+
+    @include respond(maxWidth768) {
+        margin-bottom: 25px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    @include respond(maxWidth575) {
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+}
+
+.headingSecondary {
+    line-height: 1.25em;
+    margin-bottom: 0;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 700;
+    font-family: "Playfair", serif;
+    color: rgba($colorPrimary, 1);
+}
+
+.headingTertiary {
+    line-height: 1;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 700;
+    color: $colorPrimary;
+
+    @include respond(maxWidth992) {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    @include respond(maxWidth768) {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    @include respond(maxWidth575) {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+}
+
+.headingFourth {
+    line-height: 1.25em;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 700;
+    color: $colorPrimary;
+
+    @include respond(maxWidth992) {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    @include respond(maxWidth768) {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+
+    @include respond(maxWidth575) {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+}
+
+.heading-five {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: $colorPrimary;
+    text-align: center;
+}
+
+.subHeading {
+    line-height: 1.25em;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    font-size: 16px;
+    padding-left: 15px;
+    border-left: 4px solid $colorSecondary;
+    font-weight: 700;
+    color: $colorPrimary;
+
+    @include respond(maxWidth992) {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    @include respond(maxWidth768) {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    @include respond(maxWidth575) {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+}
+
+p,
+span,
+li {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: normal;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include respond(maxWidth992) {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+
+
+.hero-section {
+    position: relative;
+    &::before{
+        content: "";
+        background: url("../images/hero-04.jpg");
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+        background-attachment: fixed;
+    }
+    .container{
+        position: relative;
+    }
+    @include respond(minWidth992) {
+        min-height: 100vh;
+
+        .container {
+            height: 100vh;
+        }
+    }
+
+    background: $colorPrimary;
+
+    .heroGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        height: 100%;
+
+        @include respond(maxWidth992) {
+            display: flex;
+            flex-direction: column-reverse;
+            padding: 30px;
+        }
+
+        .global-btn-light {
+            margin-top: 40px;
+        }
+
+        &__Item {
+            @include respond(maxWidth992) {
+                text-align: center;
+            }
+
+            .logoWrapper {
+                margin-bottom: 20px;
+
+                img {
+                    width: 400px;
+                    display: inline-block;
+                    background: $colorWhite;
+                    padding: 15px 25px;
+
+                    @include respond(maxWidth768) {
+                        width: 290px;
+                        padding: 10px 15px;
+                    }
+
+                    &.desktop {
+                        @include respond(maxWidth992) {
+                            display: none;
+                        }
+                    }
+
+                    &.mobile {
+                        @include respond(maxWidth992){
+                            margin-bottom: 20px;
+                        }
+                        @include respond(minWidth992) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .hero-content {
+                h1 {
+                    color: $colorWhite;
+                    font-size: 48px;
+                    line-height: 1.2;
+                    text-transform: uppercase;
+
+                    @include respond(maxWidth768) {
+                        font-size: 36px;
+                    }
+
+                    span {
+                        font: inherit;
+                    }
+                }
+
+                h2 {
+                    margin-top: 30px;
+
+                    @include respond(maxWidth768) {
+                        margin-top: 20px;
+                    }
+
+                    span {
+                        font-size: 24px;
+                        text-transform: uppercase;
+                        font-weight: 700;
+
+                        @include respond(maxWidth768) {
+                            font-size: 20px;
+                        }
+
+                        &:first-child {
+                            color: $colorWhite;
+                            border: 1px solid $colorWhite;
+                            display: inline-block;
+                            padding: 5px 20px;
+                        }
+
+                        &:last-child {
+                            background: $colorWhite;
+                            color: $colorPrimary;
+                            border: 1px solid $colorWhite;
+                            padding: 5px;
+                            display: inline-block;
+                        }
+                    }
+
+                }
+            }
+
+            .imgWrapper {
+                overflow: hidden;
+                border-radius: 100%;
+
+                img {
+                    border-radius: 100%;
+                    aspect-ratio: 1 / 1;
+                    width: calc(100% - 100px);
+                    display: block;
+                    margin: auto;
+                    border: 10px solid $colorWhite;
+
+                    @include respond(maxWidth992) {
+                        width: 400px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.alfaTookit {
+    .eotoGrid {
+        align-items: center;
+    }
+
+    .subHeading {
+        color: $colorSecondary;
+        display: inline-block;
+        text-align: left;
+    }
+
+    .content-para {
+        margin: 20px 0;
+    }
+
+    @include respond(minWidth992){
+        .linkWrapper {
+            margin-top: 5rem;
+        }
+    }
+    .imgWrapper {
+        position: relative;
+
+        .rs-20,
+        .ebook {
+            position: absolute;
+            background: #fff100;
+            width: 110px;
+            height: 110px;
+            border-radius: 100%;
+            display: grid;
+            place-content: center;
+            transition: $transition;
+            @include respond(maxWidth768){
+                position: relative;
+            }
+
+            h5 {
+                text-align: center;
+                line-height: 1;
+
+                span {
+                    display: block;
+                    font: inherit;
+                    text-transform: uppercase;
+                    padding: 3.5px 0;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .rs-20 {
+            top: -20px;
+            left: 10px;
+            transform: rotate(15deg);
+            @media screen and (max-width:1200px) and (min-width:992px) {
+                left: -20px;
+            }
+            @include respond(maxWidth768){
+                top: 20px;
+                left: 20px;
+            }
+
+            &:hover {
+                transform: rotate(30deg) scale(1.1);
+            }
+        }
+
+        .ebook {
+            bottom: 60px;
+            right: 65px;
+            transform: rotate(20deg);
+            @media screen and (max-width:1200px) and (min-width:992px) {
+                right: 0;
+            }
+            @include respond(maxWidth768){
+                margin-left: auto;
+                right: 0;
+                bottom: 10px;
+            }
+
+            &:hover {
+                transform: rotate(20deg) scale(1.1);
+            }
+        }
+
+        img {
+            width: 400px;
+            margin: auto;
+            display: block;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            border-radius: 16px;
+            @media screen and (max-width:320px) {
+                width: calc(100% - 20px);
+            }
+            @include respond(maxWidth768){
+                width: 300px;
+            }
+        }
+    }
+}
+
+.reason {
+    background: $colorPrimary;
+    position: relative;
+    &::before{
+        content: "";
+        background: url("../images/hero-04.jpg");
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+        opacity: 0.5;
+        mix-blend-mode: multiply;
+        background-attachment: fixed;
+    }
+    .container{
+        position: relative;
+    }
+
+    .eotoGrid {
+        align-items: center;
+        &__Item{
+            &:last-child{
+                align-self: flex-end;
+            }
+        }
+    }
+
+    .imgWrapper {
+        padding: 0 30px;
+        line-height: 0;
+    }
+
+    .standard {
+        background: $colorWhite;
+        color: $colorPrimary;
+        font-size: 16px;
+        padding: 7px 20px;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .headingSecondary {
+        color: $colorWhite;
+        font-size: 66px;
+        line-height: 1;
+        letter-spacing: 0.5px;
+
+        @include respond(maxWidth768) {
+            font-size: 48px;
+        }
+
+        span {
+            color: $colorSecondary;
+            font: inherit;
+        }
+    }
+
+    p {
+        color: $colorWhite;
+        font-size: 30px;
+        margin-top: 30px;
+        padding: 10px;
+        display: inline-block;
+        border-bottom: 1px solid $colorWhite;
+        border-top: 1px solid $colorWhite;
+        font-style: italic;
+
+        span {
+            font-size: 24px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        font-family: "Playfair",
+        serif;
+    }
+}
+
+.teachActivities {
+    .teachGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+
+        @include respond(maxWidth992) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include respond(maxWidth575){
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        &__Item {
+            .content-wrapper {
+                border: 1px solid var(--tclr);
+                height: 100%;
+                border-radius: 16px;
+                overflow: hidden;
+
+                .headingTertiary {
+                    background: var(--tclr);
+                    color: $colorBlack;
+                    padding: 10px;
+                    height: 56px;
+                }
+
+                p {
+                    padding: 10px 15px;
+                }
+            }
+
+            &:nth-child(1),
+            &:nth-child(4) {
+                .headingTertiary {
+                    color: $colorWhite;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background: #1e2749;
+    padding: 20px 0;
+    @include respond(maxWidth768){
+        padding-bottom: 70px;
+    }
+
+    .footerLink {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        @include respond(maxWidth575){
+            flex-direction: column;
+            gap: 5px;
+            li{
+                &:nth-child(2){
+                    display: none;
+                }
+            }
+        }
+
+        li {
+            color: $colorWhite;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                height: 20px;
+                width: auto;
+                filter: invert(10) brightness(100);
+            }
+
+            a {
+                color: $colorWhite;
+                font-weight: 500;
+                text-transform: uppercase;
+                transition: $transition;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-position: below;
+                }
+            }
+        }
+    }
+}
+.fixedOnMobile{
+    @include respond(minWidth768){
+        display: none;
+    }
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    overflow: hidden;
+    a{
+        display: block;
+        padding: 10px;
+        background: #fff100;
+        color: $colorBlack;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 16px;
+    }
+}
